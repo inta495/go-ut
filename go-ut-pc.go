@@ -7,9 +7,12 @@ import "github.com/jacobsa/go-serial/serial"
 import "time"
 //import "bufio"
 import "os"
+import "os/exec"
 //import "strings"
 import "flag"
 import "github.com/fatih/color"
+import "github.com/labstack/echo"
+
 func xor(b []byte) []byte {
 	
 	b = append(b,0)
@@ -37,7 +40,11 @@ func main() {
 	baudrate   := flag.Int("baudrate", 9600, "baudrate")
 	filenumber := flag.Int("file", -1, "file number")
 	loop       := flag.Int("loop", -1, "update data every x second")
-
+	
+	/* clear terminal */
+	cmd := exec.Command("clear")
+	cmd.Stdout = os.Stdout
+    cmd.Run()
 	/* parse */
 	flag.Parse()
 	if len(*portname) == 0 {
@@ -163,8 +170,10 @@ func main() {
 	}
 	
 	/* serve web */
-	//TODO
-
+	e := echo.New()
+	e.Static("/", "page")
+    // Start as a web server
+    e.Start(":8000")
 
 	/* for fun */
 	fmt.Println("Hello, 世界")

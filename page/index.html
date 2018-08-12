@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<link rel="stylesheet" href="index.css">
+	<script src="vue.js"></script>
+	<script src="Chart.js"></script>
+</head>
+<body class="content">
+
+	<div style="text-align:center" class="header" id="app">
+		{{ message }}
+	</div>
+
+	<div style="text-align:center" id="app1">
+		{{ message }}
+	</div>
+	<canvas id="myChart" width="400" height="400"></canvas>
+<script>
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Purple", "Purple", "Purple","Orange"],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 192, 3, 5, 2, 3,3,3,4,5],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.9)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 4
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+
+<script src="index.js"></script>
+<a href="#" onClick="window.open('yourpage.htm','pagename','resizable,height=260,width=370'); return false;">New Page</a><noscript>You need Javascript to use the previous link or use <a href="yourpage.htm" target="_blank">New Page</a></noscript>
+</body>
+</html>
