@@ -10,8 +10,27 @@ import "os"
 //import "strings"
 import "flag"
 import "github.com/fatih/color"
+func xor(b []byte) []byte {
+	
+	b = append(b,0)
+	LEN := len(b)
+
+	for i := 0; i < LEN-1; i++ {
+		b[LEN-1] = b[i]^b[LEN-1]
+ 	}
+	return b
+}
 
 func main() {
+	/* XOR testing */
+	b1 := make([]byte,5)
+	b1[0] = 67
+	b1[1] = 11
+	b1[2] = 0
+	b1[3] = 11
+	b1[4] = 12
+	fmt.Println(xor(b1))
+
 	color.Yellow("Prints text in cyan.")
 	/* define */
 	portname   := flag.String("port", "", "COMx on windows or ttyUSBx on linux")
